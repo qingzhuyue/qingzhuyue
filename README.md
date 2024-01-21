@@ -38,53 +38,16 @@
   - `ci` 持续集成
   - `types` 类型定义文件更改
   - `wip` 开发中
-  - 查看当前的储藏列表:
-sql
-git stash list
-储藏当前工作:
-css
-git stash save "描述信息"
-例如，如果你正在修改一个文件并想将其储藏，你可以使用：
-
-css
-git stash save "修改了readme文件"
-应用储藏:
-如果你想将之前储藏的工作应用到当前工作区，可以使用：
-css
+  - 查看当前的储藏列表: git stash list 储藏当前工作: git stash save "描述信息" 例如，如果你正在修改一个文件并想将其储藏，你可以使用：git stash save "修改了readme文件"。应用储藏: 如果你想将之前储藏的工作应用到当前工作区，可以使用：git stash apply 如果你只想应用最新的储藏，可以使用：git stash pop
+删除储藏: 如果你想删除一个特定的储藏，可以使用：git stash drop stash@{n}
+其中 stash@{n} 是你想删除的储藏的引用。要查看所有储藏的引用，可以使用 git stash list。查看储藏内容:如果你想查看储藏的内容而不应用它，可以使用：git stash show stash@{n}
+创建并应用只有特定文件的储藏:如果你只想储藏某个特定文件而不是整个工作区，可以使用：git stash push -p <file>
+这会创建一个新的储藏，只包含指定的文件。然后你可以使用 git stash apply 来应用这个储藏。在新的分支上应用储藏:
+如果你想在新的分支上应用储藏，首先需要创建一个新的分支，然后使用 git stash apply。例如：git checkout -b new-branch-name
 git stash apply
-如果你只想应用最新的储藏，可以使用：
-
-css
-git stash pop
-删除储藏:
-如果你想删除一个特定的储藏，可以使用：
-css
-git stash drop stash@{n}
-其中 stash@{n} 是你想删除的储藏的引用。要查看所有储藏的引用，可以使用 git stash list。
-5. 查看储藏内容:
-如果你想查看储藏的内容而不应用它，可以使用：
-
-css
-git stash show stash@{n}
-创建并应用只有特定文件的储藏:
-如果你只想储藏某个特定文件而不是整个工作区，可以使用：
-csharp
-git stash push -p <file>
-这会创建一个新的储藏，只包含指定的文件。然后你可以使用 git stash apply 来应用这个储藏。
-7. 在新的分支上应用储藏:
-如果你想在新的分支上应用储藏，首先需要创建一个新的分支，然后使用 git stash apply。例如：
-
-sql
-git checkout -b new-branch-name
-git stash apply
-查看储藏的差异:
-如果你想查看储藏的差异，可以使用：
-css
-git stash show stash@{n} --diff <file>
+查看储藏的差异:如果你想查看储藏的差异，可以使用：git stash show stash@{n} --diff <file>
 强制应用储藏（不合并）:
-有时，当你尝试应用储藏时，Git 会报错并建议你合并。如果你确定要强制应用储藏而不合并，可以使用：
-css
-git stash apply --force stash@{n}
+有时，当你尝试应用储藏时，Git 会报错并建议你合并。如果你确定要强制应用储藏而不合并，可以使用：git stash apply --force stash@{n}
 
 ## Git 生僻的命令：
 
